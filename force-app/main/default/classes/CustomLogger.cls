@@ -13,7 +13,7 @@ public without sharing class CustomLogger {
         if (logLevel < 1 || logLevel > 9) {
             throw new CustomLogException('logLevel must be in range [1, 9]. Given: ' + logLevel);
         }
-        if (validateLogSettings(className, logLevel)) { 
+        if (validateLogLevelSettings(className, logLevel)) { 
             createLog(className, methodName, parameters, stackTrace, message, logLevel); 
         }
     }
@@ -27,7 +27,7 @@ public without sharing class CustomLogger {
 
     // Determines if log record should be created based on CustomLogLevelSettings__c custom setting.If the logLevel <= the value in the custom setting, return true. Else, return false. 
     // Default to true if no custom setting field is found for this class name.
-    private static Boolean validateLogSettings(String className, Integer logLevel) {
+    private static Boolean validateLogLevelSettings(String className, Integer logLevel) {
         String fieldName = className + '__c';
         if (Schema.SObjectType.CustomLogLevelSettings__c.fields.getMap().containsKey(fieldName.toLowercase())) { 
             return logLevel <= Integer.valueOf(CustomLogLevelSettings__c.getInstance(UserInfo.getUserId()).get(fieldName));
