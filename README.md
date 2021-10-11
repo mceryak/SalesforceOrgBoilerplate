@@ -28,5 +28,5 @@ An easier way to catch and resolve Apex errors.
 
 ## Extendable Trigger Handler
 
-The [Kevin O'hara Trigger Handler Framework, https://github.com/kevinohara80/sfdc-trigger-framework] with a small addition
+The [Kevin O'hara Trigger Handler Framework](https://github.com/kevinohara80/sfdc-trigger-framework) with a small addition
 
