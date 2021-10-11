@@ -7,7 +7,7 @@ This Repository contains items that are useful in any Salesforce Org that can be
 An easier way to catch and resolve Apex errors.
 
 - CustomLog__c Custom Object
-    - `Class__c`: Apex Class name where log occured
+    - Class__c: Apex Class name where log occured
     - LogLevel__c: The priority of the log, lower number is higher priority, Must be in range [1, 9]
     - Method__c: Apex Method name where log occured
     - Message__c: Long text field to describe what happened
