@@ -32,6 +32,7 @@ The [Kevin Ohara Trigger Handler Framework](https://github.com/kevinohara80/sfdc
 
 - ProcessSwitches__c Custom Settings
     - Add a Checkbox field for each 'Process' (Apex Trigger, Flow, Process Builder) that you wish to make configurable
+        - For Apex Triggers, the custom field must be the exact name of the class that extends TriggerHandler
     - When unchecked, the process will not run
 - TriggerHandler.isTriggerActive() method
     - This additional method checks ProcessSwitches__c to see if this trigger has been configured to be inactive before running the trigger.
