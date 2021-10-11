@@ -36,4 +36,5 @@ The [Kevin Ohara Trigger Handler Framework](https://github.com/kevinohara80/sfdc
     - When unchecked, the process will not run
 - TriggerHandler.isTriggerActive() method
     - This additional method checks ProcessSwitches__c to see if this trigger has been configured to be inactive before running the trigger.
+    - This method is called in run() method before executing handler code
 
