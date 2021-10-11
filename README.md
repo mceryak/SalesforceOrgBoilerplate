@@ -23,6 +23,7 @@ An easier way to catch and resolve Apex errors.
 - CustomLogger Apex Class
     - Call CustomLogger.log() or CustomLogger.logException() to create a CustomLog__c record
     - Validates that log records should be created based on CustomLogLevelSettings__c field values
+    - Inserts a log in an @future method when possible to avoid using up dml statements
 - CustomLogDeletionJob and CustomLogDeletionJobScheduler Apex Classes
     - Execute `CustomLogDeletionJobScheduler.scheduleEveryMonth();` to run the CustomLogDeletionJob batch job that deletes CustomLog__c records older than 6 months that do not have the Save__c field checked.
 
@@ -36,4 +37,5 @@ The [Kevin Ohara Trigger Handler Framework](https://github.com/kevinohara80/sfdc
     - When unchecked, the process will not run
 - TriggerHandler.isTriggerActive() method
     - This additional method checks ProcessSwitches__c to see if this trigger has been configured to be inactive before running the trigger.
+    - This method is called in run() method before executing handler code
 
