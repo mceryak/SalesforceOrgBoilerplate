@@ -28,5 +28,11 @@ An easier way to catch and resolve Apex errors.
 
 ## Extendable Trigger Handler
 
-The [Kevin O'hara Trigger Handler Framework](https://github.com/kevinohara80/sfdc-trigger-framework) with a small addition
+The [Kevin Ohara Trigger Handler Framework](https://github.com/kevinohara80/sfdc-trigger-framework) with a small addition
+
+- ProcessSwitches__c Custom Settings
+    - Add a Checkbox field for each 'Process' (Apex Trigger, Flow, Process Builder) that you wish to make configurable
+    - When unchecked, the process will not run
+- TriggerHandler.isTriggerActive() method
+    - This additional method checks ProcessSwitches__c to see if this trigger has been configured to be inactive before running the trigger.
 
