@@ -2,7 +2,7 @@
 private class lgr_LogDeletionJobTest {
     @TestSetup
     static void makeData(){
-        CustomLogSettings__c settings = new CustomLogSettings__c(LogLifetimeMonths__c = 3, SetupOwnerId = UserInfo.getOrganizationId());
+        lgr_LogSettings__c settings = new lgr_LogSettings__c(LogLifetimeInMonths__c = 3, SetupOwnerId = UserInfo.getOrganizationId());
         insert settings;
         Date today = Date.today();
         lgr_Log__c clOld = new lgr_Log__c(Occured__c = today.addMonths(-4), Class__c = 'TestClassDIE');   
