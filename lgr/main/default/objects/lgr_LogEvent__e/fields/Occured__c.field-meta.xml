@@ -3,7 +3,6 @@
     <fullName>Occured__c</fullName>
     <defaultValue>NOW()</defaultValue>
     <description>=&gt; lgr_Log__c.Occured__c</description>
-    <externalId>false</externalId>
     <isFilteringDisabled>false</isFilteringDisabled>
     <isNameField>false</isNameField>
     <isSortingDisabled>false</isSortingDisabled>

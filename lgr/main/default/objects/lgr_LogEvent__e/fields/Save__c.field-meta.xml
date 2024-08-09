@@ -3,7 +3,6 @@
     <fullName>Save__c</fullName>
     <defaultValue>false</defaultValue>
     <description>=&gt; lgr_Log__c.Save__c</description>
-    <externalId>false</externalId>
     <isFilteringDisabled>false</isFilteringDisabled>
     <isNameField>false</isNameField>
     <isSortingDisabled>false</isSortingDisabled>

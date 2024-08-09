@@ -10,7 +10,6 @@
 	</types>
 	<types>
 		<members>lgr_LogEvent__e</members>
-		<members>lgr_LogLevels__c</members>
 		<members>lgr_Log__c</members>
 		<name>CustomObject</name>
 	</types>
