@@ -19,7 +19,19 @@
 		<name>Flow</name>
 	</types>
 	<types>
-		<members>lgr_Logging</members>
+		<members>lgr_Log__c</members>
+		<name>CustomTab</name>
+	</types>
+	<types>
+		<members>lgr_Log_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>lgr_Log__c-Custom Log Layout</members>
+		<name>Layout</name>
+	</types>
+	<types>
+		<members>lgr_LogViewer</members>
 		<name>PermissionSet</name>
 	</types>
 	<version>61.0</version>

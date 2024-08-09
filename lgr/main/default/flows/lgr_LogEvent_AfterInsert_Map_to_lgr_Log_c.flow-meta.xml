@@ -36,7 +36,7 @@
         <connector>
             <targetReference>Map_to_Log_c</targetReference>
         </connector>
-        <flowRunAsUser>TriggeringUser</flowRunAsUser>
+        <flowRunAsUser>DefaultWorkflowUser</flowRunAsUser>
         <object>lgr_LogEvent__e</object>
         <triggerType>PlatformEvent</triggerType>
     </start>
