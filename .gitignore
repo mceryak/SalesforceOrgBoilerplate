@@ -37,3 +37,10 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+
+.sf/*
+
+# scripts
+scripts/apex/hello.apex
+scripts/soql/account.soql
