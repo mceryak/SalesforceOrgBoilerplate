@@ -33,5 +33,9 @@
 		<members>lgr_LogViewer</members>
 		<name>PermissionSet</name>
 	</types>
+	<types>
+		<members>lgr_LogSettings__c</members>
+		<name>CustomObject</name>
+	</types>
 	<version>61.0</version>
 </Package>
