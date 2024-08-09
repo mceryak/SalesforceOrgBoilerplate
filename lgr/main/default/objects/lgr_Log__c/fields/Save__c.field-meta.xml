@@ -3,7 +3,6 @@
     <fullName>Save__c</fullName>
     <defaultValue>false</defaultValue>
     <description>When checked, this record will not be deleted in CustomLogDeletionJob scheduled batch job</description>
-    <externalId>false</externalId>
     <inlineHelpText>When checked, this record will not be deleted in CustomLogDeletionJob scheduled batch job</inlineHelpText>
     <label>Save</label>
     <trackTrending>false</trackTrending>
