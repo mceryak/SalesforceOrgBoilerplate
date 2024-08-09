@@ -1,12 +1,17 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app",
-      "default": true
+        "path": "lgr",
+        "default": true
+    },
+    {
+      "path": "fflib",
+      "default": false
     }
+    
   ],
   "name": "Playground",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "52.0"
+  "sourceApiVersion": "61.0"
 }

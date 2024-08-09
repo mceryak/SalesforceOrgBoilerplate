@@ -6,7 +6,7 @@ This Repository contains items that are useful in any Salesforce Org that can be
 
 An easier way to catch and resolve Apex errors.
 
-- CustomLog__c Custom Object
+- lgr_Log__c Custom Object
     - Class__c: Apex Class name where log occured
     - LogLevel__c: The priority of the log, lower number is higher priority, Must be in range [1, 9]
     - Method__c: Apex Method name where log occured
@@ -18,14 +18,14 @@ An easier way to catch and resolve Apex errors.
 - CustomLogLevelSettings__c Custom Settings
     - Add a Number field to this Object with Name being the associated Apex Class. 
     - Let the field value be the Max log level you wish to create for this class
-        - e.g. if value = 3, then only CustomLog__c records with LogLevel__c <= 3 will be created
+        - e.g. if value = 3, then only lgr_Log__c records with LogLevel__c <= 3 will be created
         - If field value = 0, no logs will be created for this class
 - CustomLogger Apex Class
-    - Call CustomLogger.log() or CustomLogger.logException() to create a CustomLog__c record
+    - Call CustomLogger.log() or CustomLogger.logException() to create a lgr_Log__c record
     - Validates that log records should be created based on CustomLogLevelSettings__c field values
     - Inserts a log in an @future method when possible to avoid using up dml statements
 - CustomLogDeletionJob and CustomLogDeletionJobScheduler Apex Classes
-    - Execute `CustomLogDeletionJobScheduler.scheduleEveryMonth();` to run the CustomLogDeletionJob batch job that deletes CustomLog__c records older than 6 months that do not have the Save__c field checked.
+    - Execute `CustomLogDeletionJobScheduler.scheduleEveryMonth();` to run the CustomLogDeletionJob batch job that deletes lgr_Log__c records older than 6 months that do not have the Save__c field checked.
 
 ## Extendable Trigger Handler
 
