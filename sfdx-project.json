@@ -1,11 +1,11 @@
 {
   "packageDirectories": [
     {
-        "path": "lgr",
+        "path": "modules/lgr",
         "default": true
     },
     {
-      "path": "fflib",
+      "path": "modules/fflib",
       "default": false
     }
     
