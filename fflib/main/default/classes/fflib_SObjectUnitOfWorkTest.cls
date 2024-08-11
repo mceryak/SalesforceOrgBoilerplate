@@ -173,6 +173,18 @@ private with sharing class fflib_SObjectUnitOfWorkTest
     }
 
     @IsTest
+    private static void testRegisterEmptyRecycleBin_simpleDML()
+    {
+        // GIVEN - an existing record of the recycle bin
+        Opportunity opportunity = new Opportunity(Id = fflib_IDGenerator.generate(Schema.Opportunity.SObjectType));
+        fflib_SObjectUnitOfWork unitOfWork = new fflib_SObjectUnitOfWork(MY_SOBJECTS);
+
+        // WHEN - we empty the record from the recycle bin
+        unitOfWork.registerEmptyRecycleBin(new List<Opportunity>{ opportunity });
+        unitOfWork.commitWork();
+    }
+
+    @IsTest
     private static void testAssertForNonEventSObjectType()
     {
         fflib_SObjectUnitOfWork unitOfWork = new fflib_SObjectUnitOfWork(MY_SOBJECTS);

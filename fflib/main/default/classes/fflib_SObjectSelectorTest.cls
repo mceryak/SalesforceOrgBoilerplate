@@ -37,6 +37,7 @@ private with sharing class fflib_SObjectSelectorTest
 		Testfflib_SObjectSelector selector = new Testfflib_SObjectSelector();
 		system.assertEquals(null, selector.getSObjectFieldSetList());
 		system.assertEquals('Account',selector.getSObjectName());
+        System.assertEquals(Account.getSObjectType(), selector.sObjectType());
 	}
 	
 	static testMethod void testSelectSObjectsById()
@@ -52,6 +53,7 @@ private with sharing class fflib_SObjectSelectorTest
 			
 		Test.startTest();		
 		Testfflib_SObjectSelector selector = new Testfflib_SObjectSelector();
+        selector.assertIsAccessible();
 		List<Account> result = (List<Account>) selector.selectSObjectsById(idSet);		
 		Test.stopTest();
 		
