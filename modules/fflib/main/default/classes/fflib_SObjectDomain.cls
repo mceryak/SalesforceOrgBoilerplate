@@ -102,6 +102,7 @@ public virtual with sharing class fflib_SObjectDomain
 	/**
 	 * Retains the trigger tracking configuration used for each domain
 	 **/
+    @TestVisible
 	private static Map<Type, TriggerEvent> TriggerEventByClass;
 
 	static

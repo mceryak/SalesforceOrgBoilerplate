@@ -54,6 +54,7 @@
 public virtual class fflib_SObjectUnitOfWork
     implements fflib_ISObjectUnitOfWork
 {
+    @TestVisible
     protected List<Schema.SObjectType> m_sObjectTypes = new List<Schema.SObjectType>();
 
     protected Map<String, List<SObject>> m_newListByType = new Map<String, List<SObject>>();

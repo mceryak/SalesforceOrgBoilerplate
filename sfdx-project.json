@@ -7,8 +7,11 @@
     {
       "path": "modules/fflib",
       "default": false
+    },
+    {
+        "path": "modules/fflibe",
+        "default": false
     }
-    
   ],
   "name": "Playground",
   "namespace": "",
