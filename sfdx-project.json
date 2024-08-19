@@ -1,8 +1,12 @@
 {
   "packageDirectories": [
     {
-        "path": "modules/lgr",
+        "path": "components/modal",
         "default": true
+    },
+    {
+        "path": "modules/lgr",
+        "default": false
     },
     {
       "path": "modules/fflib",

@@ -1,0 +1,15 @@
+<template>
+    <c-mc_modal show-modal={showModal} screen-props={modalProps} onrightbuttonclick={handleNext} onleftbuttonclick={handleBack} cur-screen-idx={curScreenIdx}>
+        <div slot="0">
+            <lightning-button label="Increment Counter" onclick={incrementCounter}></lightning-button>
+        </div>
+        <div slot="1">
+            <p>{counterText}</p>
+        </div>
+    </c-mc_modal>
+    <lightning-card>
+        <div class="slds-var-p_around-small slds-align_absolute-center">
+            <lightning-button label="Show Modal" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
