@@ -41,4 +41,30 @@ public inherited sharing virtual class fflibe_Application extends fflib_Applicat
 
     }
 
+    public virtual class DomainFactory extends fflib_Application.DomainFactory {
+
+        public DomainFactory() {
+            super(fflibe_APP.SELECTOR, new Map<SObjectType, Type>());
+        }
+
+        protected virtual override Map<Object, Type> getConstructorTypeByObject(Map<SObjectType, Type> constructorTypeBySObjectType)
+		{
+			Map<Object, Type> result = new Map<Object, Type>();
+			for (fflibe_DomainMapping__mdt mapping : fflibe_MetadataHelper.getDomainMappings()) {
+                try {
+                    SObjectType sObjType = ((SObject)Type.forName('Schema.' + mapping.SObject__c).newInstance()).getSObjectType();
+                    result.put(
+                            (Object) sObjType,
+                            Type.forName(mapping.ApexClass__c + '.Constructor')
+                    );
+                } catch (Exception e) {
+                    lgr_Logger.log(e, 'fflibe_Application', 'DomainFactory init', 'domain mapping: ' + mapping);
+                    throw e;
+                }
+			}
+			return result;
+		}
+
+    }
+
 }

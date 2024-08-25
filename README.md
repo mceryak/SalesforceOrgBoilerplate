@@ -2,30 +2,45 @@
 
 This Repository contains items that are useful in any Salesforce Org that can be re-used without any code changes.
 
-## Custom Logging
+## Custom Logger (lgr)
 
-An easier way to catch and resolve Apex errors.
+An easier way to catch and resolve Apex errors in production.
 
-- lgr_Log__c Custom Object
-    - Class__c: Apex Class name where log occured
-    - LogLevel__c: The priority of the log, lower number is higher priority, Must be in range [1, 9]
-    - Method__c: Apex Method name where log occured
-    - Message__c: Long text field to describe what happened
-    - Occured__c: DateTime that the log occured
-    - Parameters__c: Long text field to add necessary data
-    - StackTrace__c: Exact line of code where an Error occured
-    - Save__c: When checked, this record will never be auto-deleted in CustomLogDeletionJob batch job
-- CustomLogLevelSettings__c Custom Settings
-    - Add a Number field to this Object with Name being the associated Apex Class. 
-    - Let the field value be the Max log level you wish to create for this class
-        - e.g. if value = 3, then only lgr_Log__c records with LogLevel__c <= 3 will be created
-        - If field value = 0, no logs will be created for this class
-- CustomLogger Apex Class
-    - Call CustomLogger.log() or CustomLogger.logException() to create a lgr_Log__c record
-    - Validates that log records should be created based on CustomLogLevelSettings__c field values
-    - Inserts a log in an @future method when possible to avoid using up dml statements
-- CustomLogDeletionJob and CustomLogDeletionJobScheduler Apex Classes
-    - Execute `CustomLogDeletionJobScheduler.scheduleEveryMonth();` to run the CustomLogDeletionJob batch job that deletes lgr_Log__c records older than 6 months that do not have the Save__c field checked.
+### Usage
+
+1. For each Apex Class containing calls to the logger, add a custom text field to lgr_LogLevels__c Custom Settings:
+    - Field Type: Text(8)
+    - Field Api Name: The exact name of the Apex class containing the logger call
+    - Field Value: `CRITICAL`, `WARNING`, `INFO`, or `DEBUG`
+2. In the Apex Class, call the logger:
+    - `lgr_Logger.log('className', 'methodName', 'message',  'parameters', 'stackTrace', lgr_Logger.LogLevel.INFO);`
+
+        - (When possible, the DML insert is done asynchronously so that it does not affect the limits of the current transaction)
+    - `lgr_Logger.log(someException, 'className', 'methodName', 'parameters');`
+        - (A devoted method for logging exceptions, which utilizes a 'publish immediately' platform event so that the exception can be re-thrown)
+
+3. Clone the `All` List View for Custom Logs and filter on the Apex Class you want to see logs for.
+
+4. Log records stick around for a default of 3 months, and are deleted in a monthly deletion job (see deployment steps). To save an individual Log record, tick the `Save` checkbox on the page layout. To change the default lifetime of all logs, Update the value on `lgr_LogSettings__c` Custom Settings.
+
+### Deployment Steps
+
+1. Deploy Custom Settings metadata.
+    - `sfdx project deploy start -x modules/lgr/manifest/lgr_package1.xml`
+
+2. Insert Org Defaults for Custom Settings.
+    - scripts/customSettingsOrgDefaults.apex
+
+3. Deploy the rest of the metadata.
+    - `sfdx project deploy start -x modules/lgr/manifest/lgr_package2.xml -l RunSpecifiedTests --tests lgr_LogDeletionJobTest lgr_LoggerTest`
+
+4. Assign Viewer Permissions to all Admins.
+    - /modules/lgr/scripts/assignViewerPermSet.apex
+
+5. Schedule the Deletion job.
+    - /modules/lgr/scripts/scheduleDeletionJob.apex
+
+
 
 ## Extendable Trigger Handler
 

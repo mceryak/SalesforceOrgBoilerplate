@@ -13,4 +13,13 @@ public inherited sharing class fflibe_MetadataHelper {
             : fflibe_SelectorMapping__mdt.getAll().values();
     }
 
+    public static fflibe_DomainMapping__mdt[] getDomainMappings() {
+        return (Test.isRunningTest() && returnMockData) 
+            ? new fflibe_DomainMapping__mdt[] {
+                new fflibe_DomainMapping__mdt(SObject__c = 'Account', ApexClass__c = 'fflibe_TESTDomain1', DeveloperName = 'Account'),
+                new fflibe_DomainMapping__mdt(SObject__c = 'Contact', ApexClass__c = 'fflibe_TESTDomain2', DeveloperName = 'Contact')
+            }
+            : fflibe_DomainMapping__mdt.getAll().values();
+    }
+
 }

@@ -41,4 +41,23 @@ private class fflibe_ApplicationTest {
         System.assertEquals(Contact.getSObjectType(), selector2.sObjectType());
     }
 
+    @IsTest 
+    static void test_domainFactory() {
+        fflibe_MetadataHelper.returnMockData = true;
+        Test.startTest();
+        fflib_IDomain domain1 = fflibe_APP.Domain.newInstance(new Account[] { new Account() });
+        fflib_IDomain domain2 = fflibe_APP.Domain.newInstance(new Contact[] { new Contact() });
+        try {
+            fflib_IDomain domain3 = fflibe_APP.DOMAIN.newInstance(new Opportunity[] { new Opportunity() });
+            System.assert(false, 'no opp domain set up');
+        } catch (fflib_Application.DeveloperException e) {}
+        catch (Exception e) {
+            System.assert(false, 'wrong exception: ' + e.getMessage());
+        }
+        Test.stopTest();
+
+        System.assertEquals(Account.getSObjectType(), ((fflib_SObjectDomain)domain1).getSObjectType());
+        System.assertEquals(Contact.getSObjectType(), ((fflib_SObjectDomain)domain2).getSObjectType());
+    }
+
 }

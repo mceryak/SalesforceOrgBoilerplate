@@ -1,0 +1,3 @@
+
+## Deployment Steps
+1. `sfdx project deploy start -d modules/fflib/main/default -l RunSpecifiedTests --tests fflib_ApplicationTest fflib_ObjectsTest fflib_QueryFactoryTest fflib_SecurityUtilsTest fflib_SObjectDescribeTest fflib_SObjectDomainTest fflib_SObjectSelectorTest fflib_SObjectsTest fflib_SObjectUnitOfWorkTest fflib_StringBuilderTest fflib_MethodVerifierTest`
