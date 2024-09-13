@@ -1,0 +1,19 @@
+<template>
+    <div class="spinner-height">
+        <div class="slds-spinner_container">
+            <div role="status" class="slds-spinner slds-spinner_medium" >
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+            </div>
+            <lightning-layout class="spinner-text-container" multiple-rows>
+                <lightning-layout-item size="12">
+                    <p class="slds-align_absolute-center display-text">{displayText}</p>
+                </lightning-layout-item>
+                <lightning-layout-item if:true={showCancelButton} size="12" class="slds-var-p-top_xx-small">
+                    <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    </div>
+</template>

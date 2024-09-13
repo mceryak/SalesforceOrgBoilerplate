@@ -5,6 +5,10 @@
         "default": false
     },
     {
+        "path": "components/spinner",
+        "default": false
+    },
+    {
         "path": "modules/lgr",
         "default": false
     },

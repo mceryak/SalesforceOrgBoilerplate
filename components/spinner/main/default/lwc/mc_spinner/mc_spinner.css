@@ -1,0 +1,22 @@
+/* .spins::after {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: grey;
+    content: attr(data-text);
+    top: calc(50% + 1.6rem);
+} */
+
+.spinner-text-container {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    color: grey;
+    top: calc(50% + 1.6rem);
+}
+
+.spinner-height {
+    min-height: 150px;
+}
